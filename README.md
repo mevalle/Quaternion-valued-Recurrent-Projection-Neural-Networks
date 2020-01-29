@@ -8,21 +8,21 @@ This repository contain the Julia source-codes of QRPNNs on unit quaternions, as
 The Jupyter-notebook of the computational experimens are also available in this repository.
 
 First of all, call the QRPNN module using: 
-<br><b>include("QRPNN.jl")</b>
+<br><b>include("QRPNN.jl")</b><br>
   
 Define a real-valued excitation function f. Examples of excitation functions are provided in the QRPNN.jl including:
 <br><b>QRPNN.identity, QRPNN.exponential, QRPNN.potential, and QRPNN.high_order</b>
 
 Given a quaternion-valued matrix U=[u1,...,up] of size NxP whose columns correspond to the fundamental memories, train the QRPNN using the command: 
-<br><b>V = QRPNN.train(f,f_params,U)</b>
+<br><b>V = QRPNN.train(f,f_params,U)</b><br>
 where f_params are the parameters of f.
 
 Given an input quaternion-valued vector x of length N, the output is given by 
-<br><b>y = QRPNN.main(f,f_parameters, U, V, x, it_max)</b>
-where it_max (default is it_max = 1000) denote the maximum number of iterations.
+<br><b>y = QRPNN.main(f,f_parameters, U, V, x, it_max, verbose)</b><br>
+where it_max (default is it_max = 1000) is the maximum number of iterations and verbose (default is true) informs if the maximum number of iterations has been reached.
 
 For example, the exponential quaternion-valued recurrent projection neural network with parameter alpha = 10 adn the default maximum number of iteration is called using the command:
-<br><b>y = QRPNN.main(QRPNN.exponential, 10, U, V, x)</b>
+<br><b>y = QRPNN.main(QRPNN.exponential, 10, U, V, x)</b><br>
 
 Remark: Quaternion-valued Recurrent Correlation Neural Network (see https://doi.org/10.1109/IJCNN.2018.8489714) is obtained by considering V = U (without training).
 
