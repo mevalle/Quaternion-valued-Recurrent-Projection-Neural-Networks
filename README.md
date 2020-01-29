@@ -6,3 +6,19 @@ Furthermore, computational experiments reveal that QRPNNs exhibit greater storag
 
 This repository contain the Julia source-codes of QRPNNs on unit quaternions, as described in the paper "Quaternion-Valued Recurrent Projection NeuralNetworks on Unit Quaternions" by Marcos Eduardo Valle and Rodolfo Lobo.
 The Jupyter-notebook of the computational experimens are also available in this repository.
+
+First of all, call the QRPNN module using: include("QRPNN.jl")
+  
+Define a real-valued excitation function f. Examples of excitation functions are provided in the QRPNN.jl including:
+  QRPNN.identity, QRPNN.exponential, QRPNN.potential, and QRPNN.high_order 
+
+Given a quaternion-valued matrix U=[u1,...,up] of size NxP whose columns correspond to the fundamental memories, train the QRPNN using the command: 
+  V = QRPNN.train(f,f_params,U) 
+where f_params are the parameters of f.
+
+Given an input quaternion-valued vector x of length N, the output is given by 
+  y = QRPNN.main(f,f_parameters, U, V, x, it_max)
+where it_max (default is it_max = 1000) denote the maximum number of iterations.
+
+Remark: Quaternion-valued Recurrent Correlation Neural Network (see https://doi.org/10.1109/IJCNN.2018.8489714) is obtained by considering V = U (without training).
+
