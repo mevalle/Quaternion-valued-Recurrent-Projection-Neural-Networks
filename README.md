@@ -1,4 +1,4 @@
-# Quaternion-valued Recurrent Projection Neural Networks
+# Quaternion-valued Recurrent Projection Neural Networks on Unit Quaternions
 
 Quaternion-valued recurrent projection neural networks (QRPNNs) are obtained by combining the non-local projection learning with the quaternion-valued recurrent correlation neural network (QRCNNs).
 QRPNNs overcome the cross-talk problem of QRCNNs and are appropriate to implement associative memories. 
@@ -10,6 +10,7 @@ This repository contain the Julia source-codes of QRPNNs on unit quaternions, as
 The Jupyter-notebook of the computational experimens are also available in this repository.
 
 ## Usage:
+
 First of all, call the QRPNN module using: 
 ```
 include("QRPNN.jl")
